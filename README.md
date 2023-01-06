@@ -8,5 +8,6 @@ v 0.1:
 TODO: 
 - Реализовать чтение и запись в EXCEL таблицу
 - Обработка исключений
-- Mapstruct
+- Mapstruct вместо ModelMapper
+- Реализация сущностей "PatientPlat" и "PatientSotr"
 - Фронтенд...
