@@ -3,10 +3,14 @@
 
 v 0.1:
 - Сущность "PatientStud" + тестовый DTO "PatientStudTestDTO"
-- Rest Эндпоинты для тестовой таблицы "patient_stud"
+- Rest Эндпоинты для PatientStudTestDTO
+
+v0.2
+- Реализова запись из БД в EXCEL таблицу
+
 
 TODO: 
-- Реализовать запись в EXCEL таблицу
+- Фикс записи в EXCEL LocalDate-значений и замена отображения bollean
 - Обработка исключений
 - Mapstruct вместо ModelMapper
 - Реализация сущностей "PatientPlat" и "PatientSotr"
