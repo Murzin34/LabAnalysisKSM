@@ -1,5 +1,6 @@
 package ru.labanalysisksm.services;
 
+import jakarta.servlet.http.HttpServletResponse;
 import ru.labanalysisksm.models.dto.PatientStudTestDTO;
 import ru.labanalysisksm.models.entities.PatientStud;
 
@@ -17,4 +18,6 @@ public interface PatientsStudService {
     public void delete(int id);
 
     public void summarize(PatientStudTestDTO patientStudTestDTO);
+
+    public void exportCustomerToExcel(HttpServletResponse response);
 }

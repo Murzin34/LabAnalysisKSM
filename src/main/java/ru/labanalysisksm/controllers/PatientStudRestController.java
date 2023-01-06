@@ -1,5 +1,6 @@
 package ru.labanalysisksm.controllers;
 
+import jakarta.servlet.http.HttpServletResponse;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -65,6 +66,15 @@ public class PatientStudRestController {
     public ResponseEntity<HttpStatus> deletePatient(@PathVariable Integer id) {
         patientsStudService.delete(id);
         return ResponseEntity.ok(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("/export-to-excel")
+    public void exportToExcel(HttpServletResponse response) {
+        response.setContentType("application/octet-stream");
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=KSM_Stud.xlsx";
+        response.setHeader(headerKey, headerValue);
+        patientsStudService.exportCustomerToExcel(response);
     }
 
     private PatientStud convertToEntity(PatientStudTestDTO patientStudTestDTO) {

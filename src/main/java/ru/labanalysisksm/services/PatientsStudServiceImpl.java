@@ -1,11 +1,14 @@
 package ru.labanalysisksm.services;
 
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.labanalysisksm.models.dto.PatientStudTestDTO;
 import ru.labanalysisksm.models.entities.PatientStud;
 import ru.labanalysisksm.repositories.PatientsStudRepository;
+import ru.labanalysisksm.util.PatientStudExcelExportUtil;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -72,6 +75,15 @@ public class PatientsStudServiceImpl implements PatientsStudService {
         patientStudTestDTO.setSum(local_sum);
     }
 
+    public void exportCustomerToExcel(HttpServletResponse response) {
+        List<PatientStud> patientStudList = patientsStudRepository.findAll();
+        PatientStudExcelExportUtil excelExportUtil = new PatientStudExcelExportUtil(patientStudList);
+        try {
+            excelExportUtil.exportDataToExcel(response);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
     //TODO Мапа через мапстракт
 /*
     public List<PatientStudTestDTO> findAllPatients() {
