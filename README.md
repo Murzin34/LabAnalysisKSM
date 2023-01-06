@@ -6,7 +6,7 @@ v 0.1:
 - Rest Эндпоинты для тестовой таблицы "patient_stud"
 
 TODO: 
-- Реализовать чтение и запись в EXCEL таблицу
+- Реализовать запись в EXCEL таблицу
 - Обработка исключений
 - Mapstruct вместо ModelMapper
 - Реализация сущностей "PatientPlat" и "PatientSotr"
